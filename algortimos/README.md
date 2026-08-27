@@ -1,5 +1,5 @@
-# Algoritmos de Ordenação
+# Classe de Algoritmos
 
-Neste arquivo estão as classes BubbleSort e QuickSort, que são as classes filhas de AlgoritmoOrdenacao. As duas utilizam a estrutura definida pela classe pai e possuem seus próprios métodos para realizar a ordenação dos elementos.
+Neste arquivo foi criada a classe AlgoritmoOrdenacao, que funciona como classe pai dos algoritmos de ordenação utilizados no projeto. Ela recebe o vetor que será utilizado durante a execução e cria uma cópia desse vetor, evitando alterações no vetor original.
 
-No BubbleSort, os elementos são comparados entre si e trocados quando estão na ordem incorreta. Já no QuickSort, é escolhido um elemento como pivô para dividir o vetor em partes menores, que são ordenadas de forma recursiva. Durante a execução dos dois algoritmos, são contabilizadas as comparações e movimentações realizadas.
+A classe também possui dois contadores, um para registrar a quantidade de comparações e outro para registrar a quantidade de movimentações realizadas durante a ordenação. Esses valores serão utilizados pelas classes filhas para analisar o funcionamento dos algoritmos.
