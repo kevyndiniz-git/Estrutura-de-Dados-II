@@ -21,6 +21,10 @@ class QuickSort(AlgoritmoOrdenacao):
             if inicio >= fim:
                 return
 
+            meio = (inicio + fim) // 2
+            self.vetor[meio], self.vetor[fim] = self.vetor[fim], self.vetor[meio]
+            self.movimentacoes += 1
+
             pivo = self.vetor[fim]
             i = inicio - 1
 
@@ -44,5 +48,43 @@ class QuickSort(AlgoritmoOrdenacao):
             ordenar_particao(posicao_pivo + 1, fim)
 
         ordenar_particao(0, len(self.vetor) - 1)
+
+        return self.comparacoes, self.movimentacoes
+
+class SelectionSort(AlgoritmoOrdenacao):
+    def ordenar(self):
+        for i in range(len(self.vetor)):
+            menor = i
+
+            for j in range(i + 1, len(self.vetor)):
+                self.comparacoes += 1
+
+                if self.vetor[j] < self.vetor[menor]:
+                    menor = j
+
+            if menor != i:
+                self.vetor[i], self.vetor[menor] = self.vetor[menor], self.vetor[i]
+                self.movimentacoes += 1
+
+        return self.comparacoes, self.movimentacoes
+
+
+class InsertionSort(AlgoritmoOrdenacao):
+    def ordenar(self):
+        for i in range(1, len(self.vetor)):
+            chave = self.vetor[i]
+            j = i - 1
+
+            while j >= 0:
+                self.comparacoes += 1
+
+                if self.vetor[j] > chave:
+                    self.vetor[j + 1] = self.vetor[j]
+                    self.movimentacoes += 1
+                    j -= 1
+                else:
+                    break
+
+            self.vetor[j + 1] = chave
 
         return self.comparacoes, self.movimentacoes
